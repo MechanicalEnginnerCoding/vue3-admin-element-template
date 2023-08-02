@@ -25,6 +25,7 @@ export const getLocale = () => {
   if (cookieLanguage) {
     return cookieLanguage;
   }
+  //navigator is object of the Web APIs provided by browsers
   const language = navigator.language.toLowerCase();
   const locales = Object.keys(messages);
   for (const locale of locales) {

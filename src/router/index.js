@@ -1,7 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
+//import create router and create web hash history from vue-router
+//import layout page, this is basical page setting, it will raise children components
 import Layout from '@/layouts/index.vue';
+//import language setting
 import i18n from '@/locales';
 const { global } = i18n;
+//def and export constant routes
 export const constantRoutes = [
   {
     path: '/login',
@@ -25,7 +29,7 @@ export const constantRoutes = [
     hidden: true,
   },
 ];
-
+//def and export dynamic routes
 export const asyncRoutes = [
   {
     path: '/',
@@ -142,7 +146,7 @@ export const asyncRoutes = [
   //   hidden: true,
   // },
 ];
-
+//create router and set
 const router = createRouter({
   history: createWebHashHistory(),
   routes: constantRoutes,
