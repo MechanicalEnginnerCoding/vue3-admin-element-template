@@ -37,8 +37,8 @@ const {
 } = setting;
 
 const isDev = process.env.NODE_ENV === 'development';
-
 const loadI18n = isDev ? vueI18n({ include: path.resolve(__dirname, './src/locales/**') }) : '';
+
 // https://vitejs.dev/config/
 export default defineConfig({
   root: process.cwd(),

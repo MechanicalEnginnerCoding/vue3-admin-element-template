@@ -2,20 +2,27 @@
  * @author hujiangjun 1217437592@qq.com
  * @description 路由控制
  */
+//import router object, it come from router/index
 import router from '@/router';
+//import vuex store instance
 import store from '@/store';
+//import NProgress to show page loading status
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
+//import get page title function
 import { getPageTitle } from '@/utils/index';
+//import software setting
 import { setting } from '@/config/setting';
 const { authentication, loginInterception, progressBar, routesWhiteList, recordRoute } = setting;
 
+//set NProgress
 NProgress.configure({
   easing: 'ease',
   speed: 500,
   trickleSpeed: 200,
   showSpinner: false,
 });
+//set router before each function
 router.beforeEach(async (to, from, next) => {
   if (progressBar) NProgress.start();
 
@@ -73,6 +80,7 @@ router.beforeEach(async (to, from, next) => {
   }
   document.title = getPageTitle(to.meta.title);
 });
+//set router after Each
 router.afterEach(() => {
   if (progressBar) NProgress.done();
 });

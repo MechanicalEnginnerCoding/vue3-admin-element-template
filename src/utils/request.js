@@ -1,11 +1,18 @@
 import axios from 'axios';
+//引入axios
+//获取net.config的配置内容
 import { netConfig } from '@/config/net.config';
 const { baseURL, contentType, invalidCode, noPermissionCode, requestTimeout, successCode } =
   netConfig;
+//引入vuex store
 import store from '@/store/index.js';
+//引入router
 import router from '@/router/index.js';
+//按需引入elmessagebox
 import { ElMessageBox, ElMessage } from 'element-plus';
+//对object进行字符连接作用或者解析
 import qs from 'qs';
+//引入软件setting
 import { setting } from '@/config/setting';
 const { tokenName } = setting;
 
@@ -44,6 +51,10 @@ const handleCode = (code, msg) => {
   }
 };
 
+//create axios instance
+//baseURL, common URL
+//timeout, timeout error setting
+//headers, header content define
 const instance = axios.create({
   baseURL,
   timeout: requestTimeout,
@@ -52,6 +63,7 @@ const instance = axios.create({
   },
 });
 
+//axios apply request interceptors setting
 instance.interceptors.request.use(
   (config) => {
     if (store.getters['user/accessToken']) {
@@ -69,6 +81,7 @@ instance.interceptors.request.use(
   }
 );
 
+//axios get respone from API interceptors setting
 instance.interceptors.response.use(
   (response) => {
     const res = response.data;
