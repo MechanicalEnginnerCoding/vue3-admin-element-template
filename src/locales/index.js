@@ -1,7 +1,7 @@
 import { createI18n } from 'vue-i18n';
-
+//cookies get language setting
 import { getLanguage } from '@/utils/cookies';
-
+//import element plus language setting
 import elementEnLocale from 'element-plus/lib/locale/lang/en';
 import elementZhLocale from 'element-plus/lib/locale/lang/zh-cn';
 
@@ -19,7 +19,7 @@ const messages = {
     ...elementZhLocale,
   },
 };
-
+//get locale langauge setting
 export const getLocale = () => {
   const cookieLanguage = getLanguage();
   if (cookieLanguage) {
